@@ -1,0 +1,5 @@
+{
+  "name": "A11y rectifier mate",
+  "description": "Automated accessibility auditing tool for vibe-coded apps.",
+  "requestFramePermissions": []
+}
