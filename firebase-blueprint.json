@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A user of the application",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID"
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The user's display name"
+        },
+        "createdAt": {
+          "type": "timestamp",
+          "description": "When the user account was created"
+        }
+      },
+      "required": ["uid", "email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profiles"
+    }
+  }
+}
