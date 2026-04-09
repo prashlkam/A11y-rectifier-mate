@@ -1,18 +1,16 @@
 #!/bin/bash
 
 # Azure App Service Deployment Script for Linux
+# This runs after Oryx build completes
 
-# Install Playwright dependencies (browsers and system deps)
-echo "Installing Playwright browsers..."
+echo "Post-build script starting..."
+
+# Install Playwright Chromium browser only (no system deps)
+# System deps can't be installed on Azure App Service without custom image
+echo "Installing Playwright Chromium browser..."
 npx playwright install chromium
 
-echo "Installing Playwright system dependencies..."
-npx playwright install-deps chromium
+# Set environment variable to use bundled Chromium
+export PLAYWRIGHT_BROWSERS_PATH=0
 
-# Build the application
-echo "Building application..."
-npm run build
-
-# Start the application
-echo "Starting application..."
-npm start
+echo "Post-build script completed."
