@@ -14,4 +14,5 @@ export PLAYWRIGHT_CHROMIUM_USE_HEADLESS_NEW=1
 
 # Start the application
 cd /home/site/wwwroot
+npx playwright install
 npm start
